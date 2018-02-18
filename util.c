@@ -32,9 +32,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include "libfdt.h"
-#include "util.h"
-#include "version_gen.h"
+#include <libfdt.h>
+#include <dtc/util.h>
 
 char *xstrdup(const char *s)
 {
@@ -410,12 +409,6 @@ void utilfdt_print_data(const char *data, int len)
 			printf("%02x%s", *p++, i < len - 1 ? " " : "");
 		printf("]");
 	}
-}
-
-void NORETURN util_version(void)
-{
-	printf("Version: %s\n", DTC_VERSION);
-	exit(0);
 }
 
 void NORETURN util_usage(const char *errmsg, const char *synopsis,
